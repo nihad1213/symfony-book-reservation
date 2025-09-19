@@ -1,7 +1,29 @@
-<header class="bg-pink-500 shadow">
-    <div class="max-w-7xl mx-auto py-4 px-5 flex justify-center items-center">
-        <h1 class="text-white text-center font-bold tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+<header class="bg-blue-500 shadow">
+    <div class="max-w-7xl mx-auto py-4 px-5 flex justify-between items-center">
+        <div class="flex-1"></div>
+        
+        <h1 class="text-white text-center font-bold tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex-1">
             Symfony Book Reservation
         </h1>
+        
+        <div class="flex-1 flex justify-end items-center space-x-4">
+            {% if app.user %}
+                <div class="flex items-center space-x-3">
+                    <span class="text-white text-sm">Welcome, {{ app.user.username }}</span>
+                    <a href="#" class="bg-white text-blue-500 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors">
+                        Logout
+                    </a>
+                </div>
+            {% else %}
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="text-white text-sm font-medium hover:text-blue-100 transition-colors">
+                        Login
+                    </a>
+                    <a href="#" class="bg-white text-blue-500 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors">
+                        Register
+                    </a>
+                </div>
+            {% endif %}
+        </div>
     </div>
 </header>
