@@ -12,6 +12,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/health')]
 class HealthController extends AbstractController
 {
+    #[Route('/ping', name: 'ping', methods: ['GET'])]
+    public function ping(): JsonResponse
+    {
+        return $this->json([
+            'status' => 'ok',
+            'time' => (new \DateTime())->format(DATE_ATOM),
+        ]);
+    }
+
     #[Route('/database-check', name: 'database_check', methods: ['GET'])]
     public function databaseCheck(EntityManagerInterface $entityManager): JsonResponse
     {
