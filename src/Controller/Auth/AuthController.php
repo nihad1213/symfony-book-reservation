@@ -27,5 +27,15 @@ final class AuthController extends AbstractController
             'controller_name' => 'AuthController',
         ]);
     }
+
+    #[Route('/auth/logout', name: 'app_auth_logout')]
+    public function logout(Request $request): Response
+    {
+        // Logic will be writed in here
+        
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'AuthController',
+        ]);
+    }
     
 }
